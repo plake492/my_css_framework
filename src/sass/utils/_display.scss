@@ -1,0 +1,15 @@
+@each $d in $displays {
+  .d-#{$d} {
+    display: $d;
+  }
+}
+
+@each $bp, $px in $breakpoints {
+  @include respond-to(#{$px}) {
+    @each $d in $displays {
+      .d-#{$bp}-#{$d} {
+        display: $d !important;
+      }
+    }
+  }
+}

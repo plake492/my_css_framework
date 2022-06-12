@@ -1,0 +1,114 @@
+:root {
+  @each $key, $val in $spacers {
+    --space-#{$key}: #{$val};
+  }
+}
+
+/**************************************************/
+/* Create Spacing Classes */
+/**************************************************/
+
+// Individual directions
+@each $typeName, $type in $types {
+  @each $dirName, $direction in $directions {
+    @each $spaceName, $spacing in $spacers {
+      @if ($typeName == mn) {
+        .#{$typeName}#{$dirName}-#{$spaceName} {
+          #{$type}-#{$direction}: -#{$spacing} !important;
+        }
+      } @else {
+        .#{$typeName}#{$dirName}-#{$spaceName} {
+          #{$type}-#{$direction}: #{$spacing} !important;
+        }
+      }
+    }
+  }
+}
+
+// X and Y directions
+@each $typeName, $type in $types {
+  @each $dirKey, $directions in $combinationDirections {
+    @each $direction in $directions {
+      @each $spaceName, $spacing in $spacers {
+        @if ($typeName == mn) {
+          // No need for negative margin on directional spacing
+        } @else {
+          .#{$typeName}#{$dirKey}-#{$spaceName} {
+            #{$type}-#{$direction}: #{$spacing} !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// All directions
+@each $typeName, $type in $types {
+  @each $direction in $allDirections {
+    @each $spaceName, $spacing in $spacers {
+      @if ($typeName == mn) {
+        // No need for negative margin on all directional spacing
+      } @else {
+        .#{$typeName}-#{$spaceName} {
+          #{$type}-#{$direction}: #{$spacing} !important;
+        }
+      }
+    }
+  }
+}
+
+/*****************************************************/
+/* Create Spacing Classes for md size overrides */
+/*****************************************************/
+@each $bp, $px in $breakpoints {
+  @include respond-to($px) {
+    // Individual directions
+    @each $typeName, $type in $types {
+      @each $dirName, $direction in $directions {
+        @each $spaceName, $spacing in $spacers {
+          @if ($typeName == mn) {
+            .#{$typeName}#{$dirName}-#{$bp}-#{$spaceName} {
+              #{$type}-#{$direction}: -#{$spacing} !important;
+            }
+          } @else {
+            .#{$typeName}#{$dirName}-#{$bp}-#{$spaceName} {
+              #{$type}-#{$direction}: #{$spacing} !important;
+            }
+          }
+        }
+      }
+    }
+
+    // X and Y directions
+    @each $typeName, $type in $types {
+      @each $dirKey, $directions in $combinationDirections {
+        @each $direction in $directions {
+          @each $spaceName, $spacing in $spacers {
+            @if ($typeName == mn) {
+              // No need for negative margin on directional spacing
+            } @else {
+              .#{$typeName}#{$dirKey}-#{$bp}-#{$spaceName} {
+                #{$type}-#{$direction}: #{$spacing} !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // All directions
+    @each $typeName, $type in $types {
+      @each $direction in $allDirections {
+        @each $spaceName, $spacing in $spacers {
+          @if ($typeName == mn) {
+            // No need for negative margin on all directional spacing
+          } @else {
+            .#{$typeName}-#{$bp}-#{$spaceName} {
+              #{$type}-#{$direction}: #{$spacing} !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

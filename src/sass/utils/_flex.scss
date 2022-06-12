@@ -1,0 +1,41 @@
+/*****************************************************/
+/* Flex Position Classes */
+/*****************************************************/
+@each $flex-prop-target, $values1 in $flex {
+  @each $flex-titles, $values2 in $values1 {
+    @each $flex-spec, $flex-val in $values2 {
+      .#{$flex-titles}-#{$flex-spec} {
+        #{$flex-prop-target}: $flex-val;
+      }
+    }
+  }
+}
+
+@for $i from 1 to 11 {
+  .flex-#{$i} {
+    flex: $i;
+  }
+}
+
+/*****************************************************/
+/* Responsive Classes */
+/*****************************************************/
+@each $bp, $px in $breakpoints {
+  @include respond-to(#{$px}) {
+    @each $flex-prop-target, $values1 in $flex {
+      @each $flex-titles, $values2 in $values1 {
+        @each $flex-spec, $flex-val in $values2 {
+          .#{$flex-titles}-#{$bp}-#{$flex-spec} {
+            #{$flex-prop-target}: $flex-val;
+          }
+        }
+      }
+    }
+
+    @for $i from 1 to 11 {
+      .flex-#{$bp}-#{$i} {
+        flex: $i !important;
+      }
+    }
+  }
+}

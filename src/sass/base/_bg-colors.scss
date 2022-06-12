@@ -1,0 +1,23 @@
+@each $name, $color in $colors {
+  .bg-#{$name} {
+    background-color: $color;
+    @extend .transition-all;
+  }
+}
+
+$transition-text-colors: (
+  dark: $dark-colors,
+  light: $light-colors
+);
+
+@each $color-key, $color-map in $transition-text-colors {
+  @each $color, $color-value in $color-map {
+    .bg-#{$color} {
+      @if ($color-key == dark) {
+        --text-color: #{$white};
+      } @else {
+        --text-color: #{$text-main};
+      }
+    }
+  }
+}

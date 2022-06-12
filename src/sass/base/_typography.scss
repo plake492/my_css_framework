@@ -1,0 +1,93 @@
+// /**************************************************/
+// /* Establish base text sizes */
+// /**************************************************/
+:root {
+  @include make-responsive-var(
+    --text-base-size,
+    $font-base-sizes,
+    $font-size-min
+  );
+
+  @include make-responsive-var(--text-alt-size, $font-alt-sizes, 1.5rem);
+
+  // Set Responsive header values
+  @include make-responsive-var(
+    --header-font-modifier,
+    $header-font-modifiers,
+    0.5
+  );
+
+  --text-sm: min(#{calc(var(--text-base-size) * 0.888)}, #{$font-size-min});
+  --line-height-ratio: #{$line-height-ratio};
+  --line-height-ratio-headers: #{$line-height-ratio-headers};
+  --text-color: #{$text-main};
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%; // Set 1rem to 10px
+}
+
+body {
+  font-family: $primary-font;
+  font-size: var(--text-base-size);
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.08rem;
+  line-height: calc(var(--text-base-size) * var(--line-height-ratio));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+.p-1 {
+  line-height: calc(var(--text-base-size) * var(--line-height-ratio));
+  font-size: var(--text-base-size);
+  font-weight: 300;
+  color: var(--text-color);
+  margin-bottom: var(--space-md);
+}
+
+.p-2 {
+  margin-bottom: var(--space-md);
+  line-height: calc(var(--text-alt-size) * var(--line-height-ratio));
+  font-size: var(--text-alt-size);
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+small,
+.small {
+  font-size: var(--text-sm);
+  line-height: calc(var(--text-sm) * var(--line-height-ratio));
+  font-weight: 300;
+  margin-bottom: var(--space-md);
+  color: var(--text-color);
+}
+
+// Generate Header fonts and line heights
+@for $i from 1 through 7 {
+  h#{$i} {
+    $font-modifier: calc((7 - $i) * var(--header-font-modifier));
+    $header-font-size: calc(
+      $font-size-standard * var(--line-height-ratio-headers) * $font-modifier
+    );
+    // Ensure that no header goes below $font-size-standard (16px)
+    $font-size: max(#{$header-font-size}, #{$font-size-standard});
+    $line-height: calc($font-size * var(--line-height-ratio-headers));
+
+    font-size: $font-size;
+    line-height: $line-height;
+    font-weight: 300;
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+  }
+}
+
+.text-bold {
+  font-weight: 600;
+}

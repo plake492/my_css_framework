@@ -1,0 +1,58 @@
+@use 'sass:map';
+
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin xl-size() {
+  @include respond-to($screen-xl-min) {
+    @content;
+  }
+}
+
+@mixin lg-size() {
+  @include respond-to($screen-lg-min) {
+    @content;
+  }
+}
+
+@mixin md-size() {
+  @include respond-to($screen-md-min) {
+    @content;
+  }
+}
+
+@mixin sm-size() {
+  @include respond-to($screen-sm-min) {
+    @content;
+  }
+}
+
+@mixin xs-size() {
+  @include respond-to($screen-xs-min) {
+    @content;
+  }
+}
+
+//  * Generate a responsive css variable
+//  *
+//  * @param {SASS Map} must be a sass map containing keys of sm, md, lg, xl
+//  * @param {text} the css variable, --css-var
+//  * @param {any} optional, the default value, will set value for xs devices
+//  */
+@mixin make-responsive-var($var-to-update, $map, $starting-val: null) {
+  @if ($starting-val) {
+    #{$var-to-update}: $starting-val;
+  }
+
+  @each $key, $bp in $breakpoints {
+    // Get header mods by key of breakpoints
+    $val: map.get($map, $key);
+
+    @include respond-to($bp) {
+      #{$var-to-update}: #{$val};
+    }
+  }
+}

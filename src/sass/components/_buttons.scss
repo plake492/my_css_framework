@@ -1,0 +1,59 @@
+button:not(.btn) {
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+
+.btn {
+  --btn-color: inherit;
+  --btn-bg: inherit;
+  --btn-border-color: #{$rock};
+  --btn-border-width: 1px;
+  --btn-padding-buffer: 0px;
+  --btn-padding-x: #{calc($space-md + var(--btn-padding-buffer))};
+  --btn-padding-y: #{calc(($space-sm + var(--btn-padding-buffer)) * 1.444)};
+  --btn-margin-y: #{$space-md};
+  --btn-font-size: 2rem;
+  --btn-border-radius: #{$border-radius};
+  --btn-min-width: 12rem;
+  --btn-hover-scale: 1.01;
+  --btn-active-scale: 0.99;
+
+  cursor: pointer;
+  color: var(--btn-color);
+  background-color: var(--btn-bg);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  margin: var(--btn-margin-y) 0;
+  font-size: var(--btn-font-size);
+  border-color: var(--btn-border-color);
+  border-width: var(--btn-border-width);
+  border-style: solid;
+  border-radius: var(--btn-border-radius);
+  box-shadow: $box-shadow;
+  min-width: var(--btn-min-width);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    border-width 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(var(--btn-hover-scale));
+  }
+
+  &:active {
+    transform: scale(var(--btn-active-scale));
+  }
+
+  &-main {
+    --btn-bg: #{$midnight};
+    --btn-color: #{$cloud};
+
+    &:hover {
+      --btn-bg: #{$violet};
+    }
+  }
+
+  &-block {
+    --btn-min-width: 100%;
+    --btn-hover-scale: 1.005;
+    --btn-active-scale: 0.999;
+  }
+}

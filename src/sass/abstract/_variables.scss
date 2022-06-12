@@ -1,0 +1,351 @@
+// Responsive Sizes
+$screen-sm-min: 400px;
+$screen-md-min: 600px;
+$screen-lg-min: 768px;
+$screen-xl-min: 1240px;
+
+$breakpoints: (
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xl: $screen-xl-min
+);
+
+// **************************************************
+// ******************** Fonts ***********************
+// **************************************************
+
+$primary-font: Verdana, sans-serif;
+
+// Responsive ***************************************
+
+$header-font-modifiers: (
+  // ratio to update the header font / line-height sizes
+  sm: 0.666,
+  md: 0.7,
+  lg: 0.78,
+  xl: 0.888
+);
+
+$font-base-sizes: (
+  sm: 1.5rem,
+  md: 1.6rem,
+  lg: 1.8rem,
+  xl: 2rem
+);
+
+$font-alt-sizes: (
+  sm: 1.6rem,
+  md: 1.8rem,
+  lg: 2rem,
+  xl: 2.2rem
+);
+
+$headers: ('6', '5', '4', '3', '2', '1');
+
+$font-size-standard: 1.6rem;
+$font-size-min: 1.4rem;
+// Set Ratios *************************************
+
+$line-height-ratio: 1.55;
+$line-height-ratio-headers: 1.222;
+
+// **************************************************
+// ******************** Spacing *********************
+// **************************************************
+$base-spacing: 1.6rem;
+
+$space-none: 0;
+$space-sm: $base-spacing * 0.5;
+$space-md: $base-spacing;
+$space-lg: $base-spacing * 1.5;
+$space-xl: $base-spacing * 2;
+$space-xxl: $base-spacing * 4;
+$space-xxxl: $base-spacing * 8;
+
+$spacers: (
+  none: 0,
+  sm: $base-spacing * 0.75,
+  md: $base-spacing,
+  lg: $base-spacing * 1.5,
+  xl: $base-spacing * 2,
+  xxl: $base-spacing * 4,
+  xxxl: $base-spacing * 8,
+  auto: auto
+);
+
+$types: (
+  p: 'padding',
+  m: 'margin',
+  mn: 'margin'
+);
+
+$directions: (
+  t: 'top',
+  r: 'right',
+  b: 'bottom',
+  l: 'left'
+);
+
+$combinationDirections: (
+  x: (
+    'left',
+    'right'
+  ),
+  y: (
+    'top',
+    'bottom'
+  )
+);
+
+$allDirections: ('left', 'right', 'top', 'bottom');
+
+// **************************************************
+// ******************** container *******************
+// **************************************************
+
+$container-width: 1320px;
+$container-width-large: 1520px;
+$container-padding: $space-md;
+
+// **************************************************
+// ******************** colors **********************
+// **************************************************
+
+$aurora: #ffa302;
+$aquifer: #4198c1;
+$black: #0c0b14;
+$breeze: #e8fcff;
+$carnation: #fde8e9;
+$cloud: #fbfbfa;
+$cove: #dff2d8;
+$fire: #ee5605;
+$flamingo: #f6c2bc;
+$foam: #f7fff6;
+$gecko: #e5fff6;
+$hibiscus: #ef798a;
+$lake: #095256;
+$lake-darker: #0d414d;
+$light-blue: #e7fbff;
+$mint: #e4fff5;
+$mist: #ecede8;
+$midnight: #161032;
+$moss: #abc4ab;
+$rain: #d6d9ce;
+$rock: #62635e;
+$sand: #eae2b7;
+$shine: #fcbf49;
+$springhead: #b0ebfb;
+$violet: #473198;
+$transparent: #00000000;
+$transparent-partial: #0000005e;
+$white: #ffffff;
+
+$dark-colors: (
+  'fire': $fire,
+  'lake': $lake,
+  'rock': $rock,
+  'midnight': $midnight,
+  'violet': $violet,
+  'transparent-partial': $transparent-partial
+);
+
+$light-colors: (
+  'aurora': $aurora,
+  'aquifer': $aquifer,
+  'breeze': $breeze,
+  'carnation': $carnation,
+  'cloud': $cloud,
+  'cove': $cove,
+  'flamingo': $flamingo,
+  'foam': $foam,
+  'gecko': $gecko,
+  'hibiscus': $hibiscus,
+  'mint': $mint,
+  'mist': $mist,
+  'moss': $moss,
+  'rain': $rain,
+  'sand': $sand,
+  'shine': $shine,
+  'springhead': $springhead,
+  'white': $white
+);
+
+$colors: (
+  map-merge(
+    $map1: $light-colors,
+    $map2: $dark-colors
+  )
+);
+
+$text-main: $midnight;
+
+// **************************************************
+// ***************** Transitions ********************
+// **************************************************
+
+$transition-list: (
+  all: all,
+  color: color,
+  bg: background-color,
+  transform: transform
+);
+
+// **************************************************
+// ***************** Borders ************************
+// **************************************************
+
+$border-radius: 4px;
+$border-radius-pill: 40px;
+$border-radius-round: 50%;
+
+$border: $rock 1px solid;
+
+$box-shadow: 5px 5px 7px 2px rgb(0 0 0 / 14%);
+
+// **************************************************
+// ***************** Positioning ********************
+// **************************************************
+
+$positions: (relative, absolute, fixed, static, sticky, unset);
+
+$position-placements: (top, bottom, left, right);
+
+$position-values: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  100: 100%,
+  n25: -25%,
+  n50: -50%,
+  n100: -100%
+);
+
+/**************************************************/
+/* Displays */
+/**************************************************/
+
+// Only Adding currently used displays for this project
+$displays: (block, inline, inline-block, flex, inline-flex, none);
+
+/**************************************************/
+/* Flexbox */
+/**************************************************/
+
+$placements: (
+  center: center,
+  start: start,
+  end: end,
+  flex-start: flex-start,
+  flex-end: flex-end,
+  between: space-between,
+  around: space-around,
+  even: space-evenly,
+  stretch: stretch
+);
+
+$align-items: (
+  center: center,
+  start: start,
+  end: end,
+  flex-start: flex-start,
+  flex-end: flex-end,
+  baseline: baseline,
+  stretch: stretch
+);
+
+$flex-direction: (
+  row: row,
+  row-reverse: row-reverse,
+  col: column,
+  col-reverse: column-reverse
+);
+
+$flex-wrap: (
+  wrap: wrap,
+  no-wrap: nowrap,
+  wrap-reverse: wrap-reverse
+);
+
+$order: (
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5
+);
+
+$flex: (
+  justify-content: (
+    justify-content: $placements
+  ),
+  align-content: (
+    align-content: $placements
+  ),
+  align-items: (
+    align-items: $align-items
+  ),
+  align-self: (
+    align-self: $align-items
+  ),
+  flex-direction: (
+    flex: $flex-direction
+  ),
+  flex-wrap: (
+    flex: $flex-wrap
+  ),
+  order: (
+    order: $order
+  ),
+  gap: (
+    flex-gap: $spacers
+  )
+);
+
+// **************************************************
+// ***************** Borders ************************
+// **************************************************
+
+$borders: (top, right, bottom, left, all);
+
+// **************************************************
+// ***************** Widths *************************
+// **************************************************
+
+$width-percentages: (
+  25: 25%,
+  33: 33%,
+  50: 50%,
+  66: 66%,
+  75: 75%,
+  100: 100%
+);
+
+// **************************************************
+// ***************** Z-indicies *********************
+// **************************************************
+$z-indecies: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+  10: 10,
+  100: 100,
+  200: 200,
+  300: 300,
+  400: 400,
+  500: 500,
+  600: 600,
+  700: 700,
+  800: 800,
+  90: 900
+);
+
+$above-everyhting: 999999;

@@ -1,0 +1,18 @@
+@each $key, $z in $z-indecies {
+  .z-#{$key} {
+    z-index: $z;
+  }
+}
+
+/* Z-index*/
+@each $bp, $px in $breakpoints {
+  @each $key, $z in $z-indecies {
+    .z-#{bp}-#{$key} {
+      z-index: $z;
+    }
+  }
+}
+
+.z-above-everything {
+  z-index: $above-everyhting;
+}

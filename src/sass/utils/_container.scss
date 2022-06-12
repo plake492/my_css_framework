@@ -1,0 +1,24 @@
+:root {
+  --container-width: #{$container-width};
+  --container-width-large: #{$container-width-large};
+  --container-padding: #{$container-padding};
+}
+
+.container {
+  @extend .mx-auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: var(--container-width);
+}
+
+.container-large {
+  @extend .mx-auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  max-width: var(--container-width-large);
+}
+
+.escape-container {
+  margin-left: calc(var(--container-padding) * -1);
+  margin-right: calc(var(--container-padding) * -1);
+}
