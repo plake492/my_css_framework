@@ -1,0 +1,5 @@
+@include class-with-responsive-key-and-val($z-indecies, z, z-index);
+
+.z-above-everything {
+  z-index: $above-everyhting;
+}

@@ -1,0 +1,16 @@
+// MAX WIDTH
+@include class-with-responsive-key-and-val(
+  $width-percentages,
+  w-max,
+  max-width
+);
+
+// MIN WIDTH
+@include class-with-responsive-key-and-val(
+  $width-percentages,
+  w-min,
+  min-width
+);
+
+// SET WIDTH
+@include class-with-responsive-key-and-val($width-percentages, w, width);

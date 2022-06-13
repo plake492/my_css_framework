@@ -8,16 +8,16 @@
   </head>
   <body data-barba="wrapper">
     <nav
-      class="p-md d-flex justify-content-between align-items-center bg-midnight"
+      class="p-md d-flex justify-content-between align-items-center box-shadow position-relative z-1"
     >
-      <a href="/"><h4>Home</h4></a>
+      <a href="/"><h5>Home</h5></a>
       <div class="d-flex">
         <a href="/flex.html">Flex</a>
       </div>
     </nav>
-    <main data-barba="container" data-barba-namespace="home">
-      <section class="bg-violet py-xxl">
-        <div class="container">
+    <main data-barba="container" data-barba-namespace="home" class="">
+      <section class="pb-xxxl angle-left-right hero">
+        <div class="container pt-xxl">
           <h1>Heading 1</h1>
           <h2>Heading 2</h2>
           <h3>Heading 3</h3>
@@ -26,7 +26,8 @@
           <h6>Heading 6</h6>
         </div>
       </section>
-      <section class="bg-carnation py-xxl">
+      r
+      <section class="py-xxl">
         <div class="container">
           <p class="p-2 text-bold">Font Size Large</p>
           <p class="p-2">
@@ -69,13 +70,15 @@
         </div>
       </section>
 
-      <section class="py-xxl bg-aquifer">
+      <!------------------------POSITIONING------------------------>
+      <section class="pt-xxl pb-xxxl">
         <div class="container">
-          <h3 class="mb-xl pb-md border-bottom">Positioning</h3>
+          <h3 class="mb-xl pb-md mb-md border-bottom">Positioning</h3>
+          <h5>Position Relative</h5>
+
           <div
-            class="w-max-100 position-relative border-rounded bg-violet p-xl box-shadow"
+            class="card w-max-100 position-relative border-rounded p-xl box-shadow"
           >
-            <h4>Position Relative</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
               dolorum saepe porro minima, sequi delectus perspiciatis explicabo!
@@ -94,9 +97,69 @@
               possimus quo sint ducimus accusantium asperiores tempora.
             </p>
             <div
-              class="position-absolute p-lg p-xl bg-midnight border-rounded box-shadow top-0 right-0 w-max-25 mt-md mr-md"
+              class="card position-absolute p-lg p-xl border-rounded box-shadow top-0 right-0 w-max-25 mt-md mr-md"
             >
               <h5>Position Absolute</h5>
+              <p class="small">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem
+                natus ipsam soluta minima repellendus tempora, quod a laudantium
+                vel quia cumque accusamus iste quos ut odit officiis? Impedit,
+                sed tenetur? lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h5 class="mb-xl pb-md my-md border-bottom">Z-indexing</h5>
+          <div
+            class="card w-100 position-relative border-rounded p-xl box-shadow z-100"
+          >
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+              repellat quibusdam illo quidem aliquam. Perferendis rerum est
+              explicabo minima nemo earum eligendi beatae mollitia ab, itaque at
+              alias sapiente dolore. Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Commodi voluptas fuga a obcaecati distinctio
+              dolorem nostrum, perspiciatis itaque cumque iure reprehenderit
+              minima non expedita qui voluptates! Sapiente amet voluptas ea.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Repellendus reprehenderit nostrum commodi voluptates? Quo
+              temporibus, repellendus quos est iste veritatis atque libero quis
+              debitis expedita harum iure praesentium maxime ea!
+            </p>
+            <div
+              class="card position-absolute p-xl w-25 border-rounded box-shadow top-0 left-0 mt-md ml-md z-2"
+            >
+              <h6 class="">Z-index 2</h6>
+              <p class="small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                repellat quibusdam illo quidem aliquam. Perferendis rerum est
+                explicabo minima nemo earum eligendi beatae mollitia ab, itaque
+              </p>
+            </div>
+            <div
+              class="card position-absolute p-xl w-25 border-rounded box-shadow top-0 left-25 mt-lg ml-lg z-1"
+            >
+              <h6 class="">Z-index 1</h6>
+              <p class="small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                repellat quibusdam illo quidem aliquam. Perferendis rerum est
+                explicabo minima nemo earum eligendi beatae mollitia ab, itaque
+              </p>
+            </div>
+            <div
+              class="card position-absolute p-xl w-25 border-rounded box-shadow top-0 left-50 mt-md ml-md"
+            >
+              <p class="small">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
+                repellat quibusdam illo quidem aliquam. Perferendis rerum est
+                explicabo minima nemo earum eligendi beatae mollitia ab, itaque
+                at alias sapiente dolore.
+              </p>
+            </div>
+            <div
+              class="card position-absolute p-xl w-25 border-rounded box-shadow top-0 left-75 mt-lg ml-lg"
+            >
               <p class="small">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam
                 repellat quibusdam illo quidem aliquam. Perferendis rerum est

@@ -11,12 +11,15 @@
 @import './utils/flex';
 @import './utils/misc';
 @import './utils/positioning';
+@import './utils/shapes';
 @import './utils/spacing';
+@import './utils/text';
 @import './utils/width';
 @import './utils/z-index';
 
 // ----------new component---------
-@import './components/flex';
 @import './components/buttons';
+@import './components/cards';
+@import './components/flex';
 
 @import './themes/main.scss';

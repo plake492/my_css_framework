@@ -139,7 +139,7 @@ $springhead: #b0ebfb;
 $violet: #473198;
 $transparent: #00000000;
 $transparent-partial: #0000005e;
-$white: #ffffff;
+$white: #eeeeee;
 
 $dark-colors: (
   'fire': $fire,
@@ -178,7 +178,18 @@ $colors: (
   )
 );
 
-$text-main: $midnight;
+// **************************************************
+// ************* Application Colors *****************
+// **************************************************
+
+$slate-grey: #0b0a17;
+$dark-mauve: #161616;
+$pale-purple: #59405c;
+$red-rocks: #87556f;
+
+$bg-primary: $slate-grey;
+$bg-secondary: $dark-mauve;
+$text-main: $white;
 
 // **************************************************
 // ***************** Transitions ********************
@@ -215,9 +226,11 @@ $position-values: (
   0: 0,
   25: 25%,
   50: 50%,
+  75: 75%,
   100: 100%,
   n25: -25%,
   n50: -50%,
+  n75: -75%,
   n100: -100%
 );
 
@@ -349,3 +362,8 @@ $z-indecies: (
 );
 
 $above-everyhting: 999999;
+// **************************************************
+// ***************** Text Alignment *****************
+// **************************************************
+
+$text-alignment: (start, end, center, right, left);

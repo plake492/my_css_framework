@@ -71,7 +71,8 @@ small,
 
 // Generate Header fonts and line heights
 @for $i from 1 through 7 {
-  h#{$i} {
+  h#{$i},
+  .h#{$i} {
     $font-modifier: calc((7 - $i) * var(--header-font-modifier));
     $header-font-size: calc(
       $font-size-standard * var(--line-height-ratio-headers) * $font-modifier
