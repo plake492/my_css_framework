@@ -9,7 +9,7 @@ button:not(.btn) {
   --btn-bg: inherit;
   --btn-border-color: #{$rock};
   --btn-border-width: 1px;
-  --btn-padding-buffer: 0px;
+  --btn-padding-buffer: 1px;
   --btn-padding-x: #{calc($space-md + var(--btn-padding-buffer))};
   --btn-padding-y: #{calc(($space-sm + var(--btn-padding-buffer)) * 1.444)};
   --btn-margin-y: #{$space-md};

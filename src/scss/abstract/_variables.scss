@@ -64,13 +64,13 @@ $space-xxl: $base-spacing * 4;
 $space-xxxl: $base-spacing * 8;
 
 $spacers: (
-  none: 0,
-  sm: $base-spacing * 0.75,
-  md: $base-spacing,
-  lg: $base-spacing * 1.5,
-  xl: $base-spacing * 2,
-  xxl: $base-spacing * 4,
-  xxxl: $base-spacing * 8,
+  none: $space-none,
+  sm: $space-sm,
+  md: $space-md,
+  lg: $space-lg,
+  xl: $space-xl,
+  xxl: $space-xxl,
+  xxxl: $space-xxxl,
   auto: auto
 );
 
@@ -187,9 +187,24 @@ $dark-mauve: #161616;
 $pale-purple: #59405c;
 $red-rocks: #87556f;
 
+$text-main: $white;
 $bg-primary: $slate-grey;
 $bg-secondary: $dark-mauve;
-$text-main: $white;
+
+// **************************************************
+// ************* Testing Hue Colors *****************
+// **************************************************
+
+$target-colors: (
+  slate-grey: $slate-grey,
+  dark-mauve: $dark-mauve,
+  pale-purple: $pale-purple,
+  red-rocks: $red-rocks,
+  midnight: $midnight,
+  lake: $lake
+);
+
+$tones: 10, 20, 30, 40, 50, 60, 70, 80;
 
 // **************************************************
 // ***************** Transitions ********************

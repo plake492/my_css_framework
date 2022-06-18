@@ -1,6 +1,6 @@
 ---
 inject: true
-to: ./src/sass/index.scss
+to: ./src/scss/index.scss
 after: ----------new component---------
 ---
 

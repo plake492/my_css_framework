@@ -1,5 +1,5 @@
 ---
-to: src/sass/components/_<%= name %>.scss
+to: src/scss/components/_<%= name %>.scss
 ---
 
 .<%= name %> {

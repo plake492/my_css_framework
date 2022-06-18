@@ -20,6 +20,9 @@ module.exports = (_, { mode }) => {
   const htmlFiles = [
     // ******** For hygen generatinon of html ********* //
     // ----------new page--------- //
+    'inputs',
+    'images',
+    'colors',
     'flex'
   ]
 
@@ -38,7 +41,7 @@ module.exports = (_, { mode }) => {
   )
 
   const webpackConfiguration = {
-    entry: './src/js/index.js',
+    entry: './src/js/index.ts',
     output: {
       filename: './assets/js/bundle.[contenthash].js',
       path: path.resolve(__dirname, 'dist'),
@@ -67,7 +70,6 @@ module.exports = (_, { mode }) => {
             }
           }
         },
-
         {
           test: /\.s[ac]ss$/i,
           use: [
@@ -82,8 +84,16 @@ module.exports = (_, { mode }) => {
             },
             { loader: 'sass-loader', options: { sourceMap: true } }
           ]
+        },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/
         }
       ]
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js']
     },
 
     optimization: {

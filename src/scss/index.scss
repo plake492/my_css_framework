@@ -1,11 +1,13 @@
 @import './abstract/variables';
 @import './abstract/mixins';
 
-@import './base/bg-colors';
-@import './base/reset';
+@import './reset/reset';
+
+@import './base/images';
 @import './base/typography';
 
 @import './utils/border';
+@import './utils/colors';
 @import './utils/container';
 @import './utils/display';
 @import './utils/flex';
@@ -18,8 +20,10 @@
 @import './utils/z-index';
 
 // ----------new component---------
+@import './components/inputs';
 @import './components/buttons';
 @import './components/cards';
 @import './components/flex';
+@import './components/links';
 
 @import './themes/main.scss';

@@ -1,0 +1,33 @@
+a,
+.link {
+  --underline-width: 100%;
+
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  transition: text-shadow 200ms ease-in-out;
+
+  &.nav-link {
+    --underline-width: 0%;
+
+    &:hover {
+      --underline-width: 100%;
+    }
+
+    &--no-underline {
+      --underline-width: 0%;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: $border;
+    width: var(--underline-width);
+    transition: width 200ms ease-in-out;
+  }
+}

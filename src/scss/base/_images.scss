@@ -1,0 +1,13 @@
+img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  border-style: none;
+  object-fit: cover;
+  object-position: center;
+
+  &.shift-right {
+    object-position: 86%;
+  }
+}

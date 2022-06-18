@@ -1,0 +1,56 @@
+@mixin generate-color-var($key, $value) {
+  --#{$key}: #{$value};
+
+  @each $tone in $tones {
+    $div-tone: calc($tone / 2);
+    $scale-value: adjust-color($value, $lightness: $div-tone * 1%);
+    --#{$key}-#{$tone}: #{$scale-value};
+  }
+}
+
+// ************************************************* //
+// ************ Generate Root color vars ************ //
+:root {
+  @each $key, $value in $target-colors {
+    @include generate-color-var($key, $value);
+  }
+}
+
+// ************************************************* //
+// ************ Generate Color Bg class ************ //
+@each $key, $_ in $target-colors {
+  .bg-#{$key} {
+    background-color: var(--#{$key});
+  }
+
+  // * Add tones as classes * //
+  @each $tone in $tones {
+    .bg-#{$key}-#{$tone} {
+      background-color: var(--#{$key}-#{$tone});
+    }
+  }
+}
+
+//
+// ************************************************* //
+// ************ Generate Color ALT Way ************* //
+$transition-text-colors: (
+  dark: $dark-colors,
+  light: $light-colors
+);
+
+@each $color-key, $color-map in $transition-text-colors {
+  @each $color, $color-value in $color-map {
+    .bg-#{$color} {
+      // * Determain text color to maintain contrast * //
+      @if ($color-key == dark) {
+        --text-color: #{$white};
+      } @else {
+        --text-color: #{$text-main};
+      }
+
+      background-color: $color-value;
+      @extend .transition-all;
+    }
+  }
+}
