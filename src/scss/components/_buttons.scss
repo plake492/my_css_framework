@@ -5,9 +5,9 @@ button:not(.btn) {
 }
 
 .btn {
-  --btn-color: inherit;
-  --btn-bg: inherit;
-  --btn-border-color: #{$rock};
+  --btn-color: var(--bg-color);
+  --btn-bg: var(--text-color);
+  --btn-border-color: var(--text-color);
   --btn-border-width: 1px;
   --btn-padding-buffer: 1px;
   --btn-padding-x: #{calc($space-md + var(--btn-padding-buffer))};
@@ -16,8 +16,7 @@ button:not(.btn) {
   --btn-font-size: 2rem;
   --btn-border-radius: #{$border-radius};
   --btn-min-width: 12rem;
-  --btn-hover-scale: 1.01;
-  --btn-active-scale: 0.99;
+  --btn-scale: 1;
 
   cursor: pointer;
   color: var(--btn-color);
@@ -29,31 +28,47 @@ button:not(.btn) {
   border-width: var(--btn-border-width);
   border-style: solid;
   border-radius: var(--btn-border-radius);
-  box-shadow: $box-shadow;
   min-width: var(--btn-min-width);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
-    border-width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: scale(var(--btn-scale));
+  transition: background-color 200ms ease-in-out, color 200ms ease-in-out,
+    border-width 200ms ease-in-out, transform 200ms ease-in-out,
+    padding 200ms ease-in-out;
 
   &:hover {
-    transform: scale(var(--btn-hover-scale));
+    --btn-border-width: 2px;
+    // Remove 1px from padding to compensate for the added border
+    --btn-padding-x: #{calc($space-md + var(--btn-padding-buffer) - 1px)};
+    --btn-padding-y: #{calc(
+        (($space-sm + var(--btn-padding-buffer)) * 1.444) - 1px
+      )};
   }
 
   &:active {
-    transform: scale(var(--btn-active-scale));
+    --btn-scale: 0.98;
   }
 
-  &-main {
-    --btn-bg: #{$midnight};
-    --btn-color: #{$cloud};
+  // * Button Variations* //
+
+  // &__main {
+  //   --btn-bg: #{$midnight};
+  //   --btn-color: #{$white};
+
+  //   &:hover {
+  //     --btn-bg: #{$violet};
+  //   }
+  // }
+
+  &__no-bg {
+    --btn-color: var(--text-color);
+    --btn-bg: var(--bg-color);
 
     &:hover {
-      --btn-bg: #{$violet};
+      --btn-color: var(--bg-color);
+      --btn-bg: var(--text-color);
     }
   }
 
   &-block {
     --btn-min-width: 100%;
-    --btn-hover-scale: 1.005;
-    --btn-active-scale: 0.999;
   }
 }

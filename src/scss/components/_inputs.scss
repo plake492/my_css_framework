@@ -1,3 +1,120 @@
-.inputs {
-    // ...styles
+input {
+  border: none;
+  background: $transparent;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.input {
+  --border-color: var(--text-color);
+  --input-width: 25rem;
+  --input-font-size: calc(var(--text-base-size) * 1.125);
+  --input-height: calc(var(--input-font-size) * 2.4444);
+  --input-border-width: 1px;
+  --input-placeholder-color: var(--text-color);
+
+  --label-font-size: calc(var(--input-font-size) / 2);
+  --label-underline-width: 0%;
+  --lable-border-width: 0px;
+  --label-padding-x: #{$space-sm};
+  --label-padding-y: 1px;
+
+  --left-offset: #{$space-md};
+  --total-height: calc(var(--input-height) + var(--input-border-width));
+  --helper-width: calc(var(--input-width) + (var(--input-border-width) * 2));
+  --helper-position: #{calc(100% - $border-radius)};
+  --border-radius-bottom: #{$border-radius};
+  --padding-x: #{calc($space-sm)};
+  --padding-y: #{calc($space-sm * 1.444)};
+
+  position: relative;
+  margin-top: $space-md;
+  display: inline-block;
+
+  &__full-width {
+    --input-width: 100%;
+    --helper-width: 100%;
+
+    min-width: var(--input-width);
+  }
+
+  label {
+    color: var(--text-color);
+    font-size: var(--label-font-size);
+    position: absolute;
+    background: var(--bg-color);
+    padding: var(--label-padding-y) var(--label-padding-x);
+    top: 0;
+    left: 0;
+    transform: translate(var(--left-offset), -47%);
+    z-index: 0;
+    font-weight: 300;
+    border: var(--lable-border-width) solid var(--border-color);
+    border-radius: $border-radius;
+    line-height: calc(var(--label-font-size) * $line-height-ratio);
+    transition: border-width 50ms ease-in-out, padding 50ms ease-in-out;
+  }
+
+  input {
+    font-size: var(--input-font-size);
+    border: var(--input-border-width) solid var(--border-color);
+    padding: var(--padding-y) var(--padding-x);
+    border-radius: $border-radius;
+    min-width: var(--input-width);
+    color: var(--text-color);
+    height: var(--input-height);
+    border-bottom-right-radius: var(--border-radius-bottom);
+    border-bottom-left-radius: var(--border-radius-bottom);
+    transition: border-width 50ms ease-in-out, padding 50ms ease-in-out;
+  }
+
+  &:hover {
+    // --input-border-width: 2px;
+    // // Remove 1px from padding to compensate for the added border
+    // --padding-x: #{calc($space-sm - 1px)};
+    // --padding-y: #{calc(($space-sm * 1.444) - 1px)};
+  }
+
+  &:focus-within {
+    --lable-border-width: 1px;
+    --label-padding-x: #{calc($space-sm - 1px)};
+    --label-padding-y: 0px;
+    // Remove 1px from padding to compensate for the added border
+    --input-border-width: 2px;
+    --padding-x: #{calc($space-sm - 1px)};
+    --padding-y: #{calc(($space-sm * 1.444) - 1px)};
+  }
+
+  &__helper-text {
+    height: var(--helper-height);
+    min-width: var(--helper-width);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: var(--padding-y) var(--padding-x);
+    margin-top: #{calc($border-radius) * -1};
+    border: var(--input-border-width) solid var(--border-color);
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+  }
+
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 0.35; /* Firefox */
+  }
+
+  /* Internet Explorer 10-11 */
+  :-ms-input-placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 0.35;
+  }
+
+  /* Microsoft Edge */
+  ::-ms-input-placeholder {
+    color: var(--input-placeholder-color);
+    opacity: 0.35;
+  }
 }

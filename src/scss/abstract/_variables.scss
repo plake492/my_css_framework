@@ -112,87 +112,24 @@ $container-padding: $space-md;
 // ******************** colors **********************
 // **************************************************
 
-$aurora: #ffa302;
-$aquifer: #4198c1;
-$black: #0c0b14;
-$breeze: #e8fcff;
-$carnation: #fde8e9;
-$cloud: #fbfbfa;
-$cove: #dff2d8;
-$fire: #ee5605;
-$flamingo: #f6c2bc;
-$foam: #f7fff6;
-$gecko: #e5fff6;
-$hibiscus: #ef798a;
-$lake: #095256;
-$lake-darker: #0d414d;
-$light-blue: #e7fbff;
-$mint: #e4fff5;
-$mist: #ecede8;
-$midnight: #161032;
-$moss: #abc4ab;
-$rain: #d6d9ce;
-$rock: #62635e;
-$sand: #eae2b7;
-$shine: #fcbf49;
-$springhead: #b0ebfb;
-$violet: #473198;
 $transparent: #00000000;
 $transparent-partial: #0000005e;
 $white: #eeeeee;
-
-$dark-colors: (
-  'fire': $fire,
-  'lake': $lake,
-  'rock': $rock,
-  'midnight': $midnight,
-  'violet': $violet,
-  'transparent-partial': $transparent-partial
-);
-
-$light-colors: (
-  'aurora': $aurora,
-  'aquifer': $aquifer,
-  'breeze': $breeze,
-  'carnation': $carnation,
-  'cloud': $cloud,
-  'cove': $cove,
-  'flamingo': $flamingo,
-  'foam': $foam,
-  'gecko': $gecko,
-  'hibiscus': $hibiscus,
-  'mint': $mint,
-  'mist': $mist,
-  'moss': $moss,
-  'rain': $rain,
-  'sand': $sand,
-  'shine': $shine,
-  'springhead': $springhead,
-  'white': $white
-);
-
-$colors: (
-  map-merge(
-    $map1: $light-colors,
-    $map2: $dark-colors
-  )
-);
-
-// **************************************************
-// ************* Application Colors *****************
-// **************************************************
-
+$violet: #473198;
+$midnight: #161032;
+$lake: #095256;
 $slate-grey: #0b0a17;
 $dark-mauve: #161616;
 $pale-purple: #59405c;
 $red-rocks: #87556f;
+$rock: #62635e;
 
 $text-main: $white;
 $bg-primary: $slate-grey;
 $bg-secondary: $dark-mauve;
 
 // **************************************************
-// ************* Testing Hue Colors *****************
+// ************* Colors with Hues *******************
 // **************************************************
 
 $target-colors: (
@@ -200,6 +137,7 @@ $target-colors: (
   dark-mauve: $dark-mauve,
   pale-purple: $pale-purple,
   red-rocks: $red-rocks,
+  violet: $violet,
   midnight: $midnight,
   lake: $lake
 );
@@ -227,7 +165,7 @@ $border-radius-round: 50%;
 
 $border: $rock 1px solid;
 
-$box-shadow: 5px 5px 7px 2px rgb(0 0 0 / 14%);
+$box-shadow: 2px 2px 7px 2px rgb(0 0 0 / 8%);
 
 // **************************************************
 // ***************** Positioning ********************

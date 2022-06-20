@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   overflow-x: hidden;
   min-height: 100vh;
@@ -51,6 +57,6 @@ nav,
 
   &__inputs {
     --image: url(../../assets/images/b.jpg);
-    --image-position: center;
+    --image-position: center 75%;
   }
 }

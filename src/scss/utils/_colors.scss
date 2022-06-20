@@ -2,55 +2,52 @@
   --#{$key}: #{$value};
 
   @each $tone in $tones {
-    $div-tone: calc($tone / 2);
-    $scale-value: adjust-color($value, $lightness: $div-tone * 1%);
-    --#{$key}-#{$tone}: #{$scale-value};
+    --#{$key}-#{$tone}: #{get-color-scale-value($value, $tone)};
   }
 }
 
 // ************************************************* //
 // ************ Generate Root color vars ************ //
+// :root {
+//   @each $key, $value in $target-colors {
+//     @include generate-color-var($key, $value);
+//   }
+// }
+
+/* Set default root colors*/
 :root {
-  @each $key, $value in $target-colors {
-    @include generate-color-var($key, $value);
-  }
+  --bg-color: #{$bg-primary};
+  --text-color: #{$text-main};
 }
 
 // ************************************************* //
 // ************ Generate Color Bg class ************ //
-@each $key, $_ in $target-colors {
-  .bg-#{$key} {
-    background-color: var(--#{$key});
+@each $key, $value in $target-colors {
+  $text-color: get-contrasted-text($value);
+
+  .bg-#{'' + $key} {
+    /* Update Root colors, setting colors in child elements */
+    --bg-color: #{$value};
+    --text-color: #{$text-color};
+
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: color 200ms ease-in-out, background 200ms ease-in-out;
   }
 
   // * Add tones as classes * //
   @each $tone in $tones {
-    .bg-#{$key}-#{$tone} {
-      background-color: var(--#{$key}-#{$tone});
-    }
-  }
-}
+    $bg-color-tone: get-color-scale-value($value, $tone);
+    $text-color-tone: get-contrasted-text($bg-color-tone);
 
-//
-// ************************************************* //
-// ************ Generate Color ALT Way ************* //
-$transition-text-colors: (
-  dark: $dark-colors,
-  light: $light-colors
-);
+    .bg-#{'' + $key}-#{$tone} {
+      /* Update Root colors, setting colors in child elements */
+      --bg-color: #{$bg-color-tone};
+      --text-color: #{$text-color-tone};
 
-@each $color-key, $color-map in $transition-text-colors {
-  @each $color, $color-value in $color-map {
-    .bg-#{$color} {
-      // * Determain text color to maintain contrast * //
-      @if ($color-key == dark) {
-        --text-color: #{$white};
-      } @else {
-        --text-color: #{$text-main};
-      }
-
-      background-color: $color-value;
-      @extend .transition-all;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: color 200ms ease-in-out, background 200ms ease-in-out;
     }
   }
 }

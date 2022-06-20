@@ -1,5 +1,5 @@
 .card {
-  background-color: $bg-secondary;
+  background-color: var(--bg-color);
   border: $border;
-  background: url('./../../assets/images/bg-dark-a.jpg');
+  border-radius: $border-radius;
 }
